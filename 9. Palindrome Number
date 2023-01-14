@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        long long int ans=0;
+        long long int n,z=x;
+        if(x<0)
+        return false;
+         for(int i=x;i!=0;i=i/10)
+         {  n=x%10;
+             ans=ans*10+n;
+             x=x/10;
+             
+         }
+        if(z==ans)
+        return true;
+        else 
+        return false;
+    }
+};
