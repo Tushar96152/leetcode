@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int maxSubarraySumCircular(vector<int>& nums) {
+        int sum=accumulate(nums.begin(),nums.end(),0);
+        int current_sum=nums[0];
+        int max_sum=nums[0];
+        int current_min_sum=nums[0];
+        int max_min_sum=nums[0];
+    
+        for(int i=1;i<nums.size();i++) //this loop is giving us maximum sum of sub array
+        {
+            current_sum=max(nums[i]+current_sum,nums[i]);
+            max_sum=max(current_sum,max_sum);
+
+        }
+        for(int i=1;i<nums.size();i++)// this loop is giving us minimum sum of sub array
+        {
+            current_min_sum=min(nums[i]+current_min_sum,nums[i]);
+            max_min_sum=min(current_min_sum,max_min_sum);
+            
+        }
+       int ans=max(sum-max_min_sum,max_sum); // this function is giving us the maximum sum of array by deleting negative value of array
+       if(max_sum<0)
+       {
+           return max_sum;
+       }
+       return ans;
+    }
+};
