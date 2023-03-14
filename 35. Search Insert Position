@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        // binary search
+        int s=0;
+        int e=nums.size()-1;
+        int mid=(s+e)/2;
+        int index;
+        while(s<=e)
+        {
+            if(target >nums[mid])
+            {
+                s=mid+1;
+             mid=(s+e)/2;
+                index=s;
+            }
+            else if(target<nums[mid])
+            {   e=mid-1;
+                mid=(s+e)/2;
+
+            }
+            else if(target==nums[mid])
+            {
+                return mid;
+            }
+        }
+        return index;
+    }
+};
