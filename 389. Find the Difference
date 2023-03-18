@@ -1,0 +1,25 @@
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        //unordered map 
+        unordered_map<char,int> m;
+        
+        m[t[0]]++;;
+        for(int i=0;i<s.length();i++)
+        {
+            m[s[i]]++;         // increment in value of s on char key
+            m[t[i+1]]++;
+        }
+       for(auto it:m)
+       {     cout<<it.first<<" "<<it.second<<endl;
+            if(it.second==1 || it.second%2==1)
+            {
+                char a=it.first;
+                return a;
+            }
+            
+       }
+       
+       return '0';
+    }
+};
