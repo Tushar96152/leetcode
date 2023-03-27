@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int totalMoney(int n) {
+        int sum=0;
+        int i=1;
+        int k=1;
+        int j=1;
+       while(n!=0)
+       {
+           sum=sum+i;
+           if(j%7==0)
+           {   i=k;
+               k++;
+           }
+           i++;
+           n--;
+           j++;
+       }
+        return sum;
+    }
+};
