@@ -1,0 +1,39 @@
+class Solution {
+public:
+    bool validMountainArray(vector<int>& arr) {
+        int max=arr[0];
+        int index=0;
+        for(int i=1;i<arr.size();i++)
+        {
+            if(max<arr[i])
+            {
+                max=arr[i];
+                index=i;
+            }
+        }
+    
+        if(index==0 || arr.size()==2 || index==arr.size()-1)
+        return false;
+        
+        int left=index;
+        while(left!=0)
+        {
+            if(arr[left-1]>=arr[left])
+            {
+                return false;
+            } 
+            left--;
+
+        }
+       
+         while(index!=arr.size()-1)
+        {
+            if(arr[index+1]>=arr[index])
+            {
+                return false;
+            }
+                index++;
+        }
+       return true;
+    }
+};
