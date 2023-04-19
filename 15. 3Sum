@@ -1,0 +1,56 @@
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+         
+         
+
+        vector<vector<int>> ans;
+        
+
+        sort(nums.begin(),nums.end());
+       
+      for(int i=0 ; i< nums.size()-2; i++)
+       {   
+             vector<int> temp;
+
+          
+           
+           int j = i+1  ,  k = nums.size() - 1;
+           if( i > 0  && nums[i] == nums [i-1]) continue;
+           while( j < k )
+           {
+               if( nums[i] + nums[j] + nums[k] == 0  )
+               {
+                      temp.push_back(nums[i]);
+                      temp.push_back(nums[j]);
+                      temp.push_back(nums[k]);
+                      ans.push_back(temp);
+                      temp={};
+                    
+                    while( j < k && nums[j] == nums[j+1])
+                    {
+                        j++;            // skiping the same elements of j index                     *two sum complexity
+                    }
+
+                    while( j < k && nums[k] == nums[k-1])
+                    {
+                        k--;          //skiping the same element of k index
+                    }                                  
+                    j++;            // changing into new value let a example of {-1,-1,-1,0,0,0,1,1,1}
+                    k--;
+                   
+               }
+               
+               else if( nums[i] + nums[j] + nums[k] > 0)
+               {
+                   k--;
+               }               
+               else
+                  j++;
+           }
+           
+       }
+
+        return ans;
+    }
+};
