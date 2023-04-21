@@ -1,0 +1,46 @@
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        k = k  % nums.size();    // if the k is greater then array size
+       int temp;
+       int i = 0;
+       int j = nums.size() - k -1;
+       
+    // rotate from left side
+      while( i < j)
+      {      temp = nums[i];
+             nums[i] = nums[j];
+             nums[j] = temp;
+          i++;
+          j--;
+      }
+
+      i =  nums.size() - k;
+      j = nums.size() - 1;
+    // rotate from right side
+      while( i < j)
+      {
+             temp = nums[i];
+             nums[i] = nums[j];
+             nums[j] = temp;
+          i++;
+          j--;
+      }
+      
+     i = 0;
+     j = nums.size() -1;
+
+     // rotate all elements of array after rotation
+      while( i < j)
+      {
+            temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+          i++;
+          j--;
+      }
+      
+     
+        
+    }
+};
