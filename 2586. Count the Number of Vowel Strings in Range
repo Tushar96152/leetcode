@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int vowelStrings(vector<string>& words, int left, int right) {
+     int count = 0;
+
+     for(int i = left ; i <= right ; i++)
+     {   
+         char startChar = words[i][0];
+         char endChar = words[i][words[i].length()-1];
+         
+
+         if(startChar == 'a' or startChar == 'e' or startChar == 'i' or startChar == 'o' or startChar == 'u')
+         {
+             if(endChar == 'a' or endChar == 'e' or endChar == 'i' or endChar == 'o' or endChar == 'u')
+             {
+                 count++;
+                 
+             }
+         } 
+         
+     }
+        return count;
+    }
+};
