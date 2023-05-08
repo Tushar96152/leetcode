@@ -1,0 +1,34 @@
+class Solution {
+public:
+    int differenceOfSum(vector<int>& nums) {
+        int sum=0;
+        int sum1=0;
+        for(int i=0;i<nums.size();i++)
+        {
+            sum=sum+nums[i];
+        }
+        int j=0;
+        while(j<nums.size())
+        {
+            if(nums[j]>=10)
+            {
+                int y=nums[j];
+                while(y!=0)
+                {
+                    int x= y % 10;
+                     y=y/10;
+                    sum1 = sum1 + x;
+                    
+
+                }
+            }
+            else
+            {
+                sum1=sum1+nums[j];
+            }
+                j++;
+        }
+        return (sum-sum1);
+    }
+
+};
