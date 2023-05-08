@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int pivotInteger(int n) {
+        
+        int leftSum = 0;
+        int rightSum = 0;
+        
+        for(int i = 1 ; i <= n ; i++  )
+        {   
+           leftSum = leftSum + i ;
+           
+            for(int  j = n; j >= i ; j--)
+            {
+                rightSum = rightSum + j;
+                
+            }
+            if(leftSum == rightSum)
+            {
+                return i;
+            }
+            rightSum = 0;
+        }
+        return -1;
+    }
+};
