@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int distinctAverages(vector<int>& nums) {
+       sort(nums.begin(), nums.end());
+
+        unordered_set<int> m;
+        int l = 0, r = nums.size();
+
+        while (l < r) {
+            m.insert(nums[l++] + nums[--r]);
+        }
+
+        return m.size();
+    }
+};
