@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int maximumValue(vector<string>& strs) {
+         
+        int maxi = 0;
+        
+        for(auto x : strs)
+        {
+            bool flag = false;
+
+            for(auto y : x)
+            {
+                if( y >= 'a' and y <= 'z')
+                {
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag)
+            {
+                maxi = max( maxi , int(x.size()) );  // dount why int is userd in max function  
+            }
+            else
+              {
+                  maxi = max( maxi , int(stoi(x))); // stoi function for convert string into inteher
+              }
+        }
+        return maxi;
+    }
+};
