@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        vector<int>ans;
+
+        for( int i = 0 ; i < nums1.size() ; i++)
+        {   bool flag = true;        // flag for cheking greater element exit thats mean flase rather then true
+            for( int j = 0 ; j < nums2.size() ; j++)
+            {
+                if(nums1[i] == nums2[j])      // cheking equal element
+                {
+                    while( j < nums2.size())
+                    {
+                        if(nums1[i] < nums2[j]) // checking next greater element
+                        {
+                           ans.push_back(nums2[j]);
+                           flag = false;
+                           break;
+                        }
+                        j++;
+                    }
+                }
+            }
+            if(flag == true)  // flag true means there is not  greater element exist
+            {
+                ans.push_back(-1);
+            }
+        }
+        return ans;
+    }
+};
