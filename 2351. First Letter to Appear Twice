@@ -1,0 +1,17 @@
+class Solution {
+public:
+    char repeatedCharacter(string s) {
+        set<char>temp;
+        temp.insert(s[0]);
+        for(int i = 1 ; i< s.length() ; i++)
+        {
+            if((temp.find(s[i])) != temp.end())
+            {
+                return s[i];
+            }
+            else
+                temp.insert(s[i]);
+        }
+        return '0';
+    }
+};
