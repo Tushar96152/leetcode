@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool digitCount(string num) {
+       map<int,int>m;
+      
+      for(int i = 0 ; i < num.length() ; i++)
+      {
+         int digit = (num[i] - '0');
+          m[digit]++;                   // collecting the frequency
+      }
+      for(int i = 0 ; i <=num.length() - 1 ; i++)
+      {      
+         auto  it = m.find(i);
+         int digit = (num[i] - '0');
+         
+          if((*it).second != digit )    //comparing the frequency with number
+          {
+             return false;
+          }
+        
+          
+      }
+           
+        return true;
+    }
+};
