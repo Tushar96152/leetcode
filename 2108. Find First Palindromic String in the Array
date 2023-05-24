@@ -1,0 +1,30 @@
+class Solution {
+public:
+    string firstPalindrome(vector<string>& words) {
+
+        for(auto it : words)
+        {
+            int i = 0 ; 
+            int j = it.length() - 1;
+            int cnt = 0;
+
+            while(i<=j)
+            {
+               if(it[i] == it[j] &&  (i != j))
+               {
+                   cnt = cnt + 2;
+               }
+               if( i == j and it[i] == it[j] )
+               {
+                   cnt++;
+               }
+               i++;
+               j--;
+            }
+
+            if(cnt == it.length() )
+            return it;
+        }
+        return "";
+    }
+};
