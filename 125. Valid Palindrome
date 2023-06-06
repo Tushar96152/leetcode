@@ -1,0 +1,40 @@
+class Solution {
+   
+    
+public:
+    bool isPalindrome(string s) {
+    int x = 0;
+       for(int i = 0 ; i < s.length() ; i++)
+       {
+          if((s[i] >= 97 && s[i] <=122) || (s[i] >=48 && s[i] <= 57 ) )
+          {
+              s[x] =  s[i];
+              x++;
+          }
+          else
+          {
+              if(s[i]>= 'A' &&s[i] <= 'Z')
+              {    
+                  char lw = s[i] + 32;                 
+                 s[x] =  lw;
+                 x++;
+              }
+             
+          }
+       }
+        int i = 0 ; 
+        
+       while( i < x)
+       {
+           if(s[i] != s[x-1] )
+           {
+               return false;
+           }
+           i++;
+           x--;
+       }
+       
+       
+       return true;
+    }
+};
