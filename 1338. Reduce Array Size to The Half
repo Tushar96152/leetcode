@@ -1,0 +1,33 @@
+class Solution {
+    public int minSetSize(int[] arr) {
+        
+        Map<Integer,Integer> map = new HashMap<>();
+        List<Integer> freqList = new ArrayList<>();
+        for(int i = 0 ; i < arr.length ; i++) // frequency of elemetns
+        {
+            if(map.containsKey(arr[i]))    map.put(arr[i],map.get(arr[i])+1);
+            else                           map.put(arr[i],1);
+
+        }
+        Iterator<Map.Entry<Integer,Integer>> itr =  map.entrySet().iterator();
+        while(itr.hasNext())   // geting the value of frequecncy in the list
+        {
+            Map.Entry<Integer,Integer> temp = itr.next();
+           
+            freqList.add(temp.getValue());
+        }
+        Collections.sort(freqList,Collections.reverseOrder());//sorting the list in descending order
+        int count=0,ans=0;
+        for(int i = 0 ; i < freqList.size() ; i++)
+            {  ans = ans + freqList.get(i);
+                 count++;
+                if(ans >= (arr.length)/2)
+                 return count;
+
+                
+            }
+
+       
+        return 1;
+    }
+}
