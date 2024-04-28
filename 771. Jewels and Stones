@@ -1,17 +1,18 @@
 class Solution {
     public int numJewelsInStones(String jewels, String stones) {
-        
-        int count = 0 ;
+        //HashMap
+        //Direct Address Table
+        int[] freq = new int[126];
+        int ans = 0 ;
         for(int i = 0 ; i < stones.length(); i++)
         {
-            for(int j = 0 ; j < jewels.length() ; j++)
-            {
-                char ans1 = stones.charAt(i);
-                char ans2 = jewels.charAt(j);
-                if(Character.compare(ans1,ans2) == 0)
-                   count +=1;
-            }
+            freq[stones.charAt(i) - '0'] += 1;
+
         }
-        return count;
+        for(int i = 0 ; i < jewels.length() ; i++)
+        {
+             ans = ans + freq[jewels.charAt(i) - '0'];
+        }
+        return ans;
     }
 }
